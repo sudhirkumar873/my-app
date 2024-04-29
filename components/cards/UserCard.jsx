@@ -28,7 +28,7 @@ const UserCard = ({ userData, update }) => {
 
   useEffect(() => {
     if (user) {
-      getUser();
+      // getUser();
     }
   }, [user]);
 

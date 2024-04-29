@@ -27,7 +27,7 @@ const ProfileCard = ({ userData, activeTab }) => {
 
   useEffect(() => {
     if (user) {
-      getUser();
+      // getUser();
     }
   }, [user]);
 
@@ -50,7 +50,7 @@ const ProfileCard = ({ userData, activeTab }) => {
   };
 
   return loading || !isLoaded ? (
-    <div>Hi</div>//yaad rakhna loader hai
+    <div>Hi</div> //yaad rakhna loader hai
   ) : (
     <div className="flex flex-col gap-9">
       <div className="flex justify-between items-start">
@@ -102,8 +102,9 @@ const ProfileCard = ({ userData, activeTab }) => {
       </div>
 
       <div className="flex gap-6">
-        {tabs.map((tab) => (
+        {tabs.map((tab, index) => (
           <Link
+            key={index} // Adding key prop here
             className={`tab ${
               activeTab === tab.name ? "bg-purple-1" : "bg-dark-2"
             }`}

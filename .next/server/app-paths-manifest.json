@@ -1,4 +1,20 @@
 {
-  "/(root)/page": "app/(root)/page.js",
-  "/(auth)/sign-in/[[...sign-in]]/page": "app/(auth)/sign-in/[[...sign-in]]/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/webhook/route": "app/api/webhook/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/api/post/[id]/[creatorId]/route": "app/api/post/[id]/[creatorId]/route.js",
+  "/api/post/search/[query]/route": "app/api/post/search/[query]/route.js",
+  "/api/post/[id]/route": "app/api/post/[id]/route.js",
+  "/api/post/route": "app/api/post/route.js",
+  "/api/post/new/route": "app/api/post/new/route.js",
+  "/api/user/[id]/route": "app/api/user/[id]/route.js",
+  "/api/user/[id]/like/[postId]/route": "app/api/user/[id]/like/[postId]/route.js",
+  "/api/user/[id]/follow/[followId]/route": "app/api/user/[id]/follow/[followId]/route.js",
+  "/api/user/profile/[profileId]/route": "app/api/user/profile/[profileId]/route.js",
+  "/api/user/[id]/save/[postId]/route": "app/api/user/[id]/save/[postId]/route.js",
+  "/api/user/route": "app/api/user/route.js",
+  "/api/user/search/[query]/route": "app/api/user/search/[query]/route.js",
+  "/(auth)/sign-in/[[...sign-in]]/page": "app/(auth)/sign-in/[[...sign-in]]/page.js",
+  "/(auth)/sign-up/[[...sign-up]]/page": "app/(auth)/sign-up/[[...sign-up]]/page.js",
+  "/(root)/page": "app/(root)/page.js"
 }

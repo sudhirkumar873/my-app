@@ -8,7 +8,7 @@ import {
 } from "@mui/icons-material";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"; // Added React import
 
 const PostCard = ({ post, creator, loggedInUser, update }) => {
   const [userData, setUserData] = useState({});
@@ -20,7 +20,6 @@ const PostCard = ({ post, creator, loggedInUser, update }) => {
   };
 
   useEffect(() => {
-    getUser();
   }, []);
 
   const isSaved = userData?.savedPosts?.find((item) => item._id === post._id);
@@ -38,7 +37,7 @@ const PostCard = ({ post, creator, loggedInUser, update }) => {
     );
     const data = await response.json();
     setUserData(data);
-    update()
+    update();
   };
 
   const handleLike = async () => {
@@ -53,15 +52,15 @@ const PostCard = ({ post, creator, loggedInUser, update }) => {
     );
     const data = await response.json();
     setUserData(data);
-    update()
+    update();
   };
 
   const handleDelete = async () => {
     await fetch(`/api/post/${post._id}/${userData._id}`, {
       method: "DELETE",
     });
-    update()
-  }
+    update();
+  };
 
   return (
     <div className="w-full max-w-xl rounded-lg flex flex-col gap-4 bg-dark-1 p-5 max-sm:gap-2">
@@ -112,23 +111,38 @@ const PostCard = ({ post, creator, loggedInUser, update }) => {
       <div className="flex justify-between">
         <div className="flex gap-2 items-center">
           {!isLiked ? (
-            <FavoriteBorder sx={{ color: "white", cursor: "pointer" }} onClick={() => handleLike()} />
+            <FavoriteBorder
+              sx={{ color: "white", cursor: "pointer" }}
+              onClick={handleLike}
+            />
           ) : (
-            <Favorite sx={{ color: "red", cursor: "pointer" }} onClick={() => handleLike()} />
+            <Favorite
+              sx={{ color: "red", cursor: "pointer" }}
+              onClick={handleLike}
+            />
           )}
           <p className="text-light-1">{post.likes.length}</p>
         </div>
 
         {loggedInUser.id !== creator.clerkId &&
           (isSaved ? (
-            <Bookmark sx={{ color: "purple", cursor: "pointer" }} onClick={() => handleSave()} />
+            <Bookmark
+              sx={{ color: "purple", cursor: "pointer" }}
+              onClick={handleSave}
+            />
           ) : (
-            <BookmarkBorder sx={{ color: "white", cursor: "pointer" }} onClick={() => handleSave()} />
+            <BookmarkBorder
+              sx={{ color: "white", cursor: "pointer" }}
+              onClick={handleSave}
+            />
           ))}
 
-          {loggedInUser.id === creator.clerkId && (
-            <Delete sx={{ color: "white", cursor: "pointer" }} onClick={() => handleDelete()} />
-          )}
+        {loggedInUser.id === creator.clerkId && (
+          <Delete
+            sx={{ color: "white", cursor: "pointer" }}
+            onClick={handleDelete}
+          />
+        )}
       </div>
     </div>
   );
