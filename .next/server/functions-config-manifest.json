@@ -1,1 +1,0 @@
-{"version":1,"functions":{"/api/post/new":{},"/api/post/[id]":{},"/api/post/[id]/[creatorId]":{},"/api/user/[id]/like/[postId]":{},"/api/post":{},"/api/post/search/[query]":{},"/api/user/[id]":{},"/api/user":{},"/api/user/search/[query]":{},"/api/user/profile/[profileId]":{},"/api/user/[id]/follow/[followId]":{},"/api/user/[id]/save/[postId]":{}}}

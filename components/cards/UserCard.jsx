@@ -1,7 +1,7 @@
 "use client";
 
 import { useUser } from "@clerk/nextjs";
-// import Loader from "@components/Loader";
+import Loader from "@components/Loader";
 import { PersonAddAlt, PersonRemove } from "@mui/icons-material";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,7 +28,7 @@ const UserCard = ({ userData, update }) => {
 
   useEffect(() => {
     if (user) {
-      // getUser();
+      getUser();
     }
   }, [user]);
 
@@ -52,8 +52,7 @@ const UserCard = ({ userData, update }) => {
   };
 
   return loading || !isLoaded ? (
-    // <Loader />/
-    <div>Hi</div> //yaad rakhna loader hai
+    <Loader />
   ) : (
     <div className="flex justify-between items-center">
       <Link

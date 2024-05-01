@@ -6,16 +6,18 @@ import Image from "next/image";
 import Link from "next/link";
 import Menu from "./Menu";
 import { useEffect, useState } from "react";
-// import Loader from "@components/Loader";
+import Loader from "@components/Loader";
 
 const LeftSideBar = () => {
   const { user, isLoaded } = useUser();
+  console.log(user);
 
   const [loading, setLoading] = useState(true);
 
   const [userData, setUserData] = useState({});
 
   const getUser = async () => {
+    console.log(user.id)
     const response = await fetch(`/api/user/${user.id}`);
     const data = await response.json();
     setUserData(data);
@@ -29,8 +31,7 @@ const LeftSideBar = () => {
   }, [user]);
 
   return loading || !isLoaded ? (
-    // <Loader />
-    <div>Hi</div> //yaad rakhna loader hai
+    <Loader />
   ) : (
     <div className="h-screen left-0 top-0 sticky overflow-auto px-10 py-6 flex flex-col gap-6 max-md:hidden 2xl:w-[350px] pr-20 custom-scrollbar">
       <Link href="/">
@@ -39,7 +40,7 @@ const LeftSideBar = () => {
 
       <div className="flex flex-col gap-2">
         <div className="flex flex-col gap-2 items-center text-light-1">
-          <Link href={`/profile/${userData._id}/posts`}>
+          <Link href={userData ? `/profile/${userData._id}/posts` : "#"}>
             <Image
               src={userData?.profilePhoto}
               alt="profile photo"

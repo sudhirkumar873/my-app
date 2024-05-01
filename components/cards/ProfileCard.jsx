@@ -1,5 +1,5 @@
 import { useUser } from "@clerk/nextjs";
-// import Loader from "@components/Loader";
+import Loader from "@components/Loader";
 import { PersonAddAlt, PersonRemove } from "@mui/icons-material";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -27,7 +27,7 @@ const ProfileCard = ({ userData, activeTab }) => {
 
   useEffect(() => {
     if (user) {
-      // getUser();
+      getUser();
     }
   }, [user]);
 
@@ -50,7 +50,7 @@ const ProfileCard = ({ userData, activeTab }) => {
   };
 
   return loading || !isLoaded ? (
-    <div>Hi</div> //yaad rakhna loader hai
+    <Loader/>
   ) : (
     <div className="flex flex-col gap-9">
       <div className="flex justify-between items-start">
